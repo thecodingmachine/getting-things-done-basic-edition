@@ -14,7 +14,7 @@ Writing controllers is a 5 step processes summarized below:
 - Purge the URL's cache
 
 <div class="alert alert-info"><i class="icon-search"></i> The process is almost exactly the same for 
-[Druplash, the Drupal based MVC framework]</div>
+<a href="http://mouf-php.com/packages/mouf/integration.drupal.druplash/">Druplash, the Drupal based MVC framework</a></div>
 
 Create the controller class
 ---------------------------
@@ -151,10 +151,10 @@ This is because an instance is quite similar to a variable name.
 ![Create controller instance](images/create_instance.png)
 
 <div class="alert"><strong>A problem?</strong> For a number of reasons, you might not find your controller
-in the list of classes. If you have this problem. First: *purge the code cache*, and try again. If your
-class is still not available in the list, go to the _Project > Analyze classes_ menu, and check that
-your class has no errors. If you still cannot find your class in the *Anaylze classes* menu, check that
-your class respects the PSR-0, that your namespace is correctly configured, and that *composer.json* is
+in the list of classes. If you have this problem. First: <em>purge the code cache/em>, and try again. If your
+class is still not available in the list, go to the <em>Project > Analyze classes</em> menu, and check that
+your class has no errors. If you still cannot find your class in the <em>Analyze classes/em> menu, check that
+your class respects the PSR-0, that your namespace is correctly configured, and that <em>composer.json/em> is
 correctly referencing your top namespace. Also, run "php composer.phar dumpautoload" to make sure your autoload
 settings are correctly accounted for by Composer.</div>
 
