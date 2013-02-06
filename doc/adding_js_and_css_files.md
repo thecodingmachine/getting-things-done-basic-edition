@@ -5,7 +5,7 @@ There are several techniques available, depending on your need.
 If you want to add JS / CSS files on every page, you will be using dependency injection to inject JS/CSS files directly in the template.
 If you want to add JS / CSS files only on some pages, you will be using the code approach.
 
-In every case, JS/CSS addition is managed by the [WebLibraryManager](http://localhost/package.website/mouf/html.utils.weblibrarymanager/).
+In every case, JS/CSS addition is managed by the [WebLibraryManager](http://mouf-php.com/packages/mouf/html.utils.weblibrarymanager/README.md).
 
 The _WebLibraryManager_ is a class that references all the JS libraries and CSS files that are included in a web page.
 JS files and CSS files are grouped together in _WebLibary_ objects.
