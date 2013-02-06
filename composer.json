@@ -27,6 +27,10 @@
     "extra": {
 	     "mouf": {
 			"doc": [
+				{
+                    "title": "Writing a controller",
+                    "url": "doc/writing_a_controller.md"
+                },
                 {
                     "title": "Adding JS and CSS files",
                     "url": "doc/adding_js_and_css_files.md"
