@@ -24,5 +24,15 @@
             "Test": "src/"
         }
     },
+    "extra": {
+	     "mouf": {
+			"doc": [
+                {
+                    "title": "Adding JS and CSS files",
+                    "url": "doc/adding_js_and_css_files.md"
+                }
+            ]
+		}
+    },
     "minimum-stability": "dev"
 }
