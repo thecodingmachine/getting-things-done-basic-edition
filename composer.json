@@ -34,6 +34,10 @@
                 {
                     "title": "Adding JS and CSS files",
                     "url": "doc/adding_js_and_css_files.md"
+                },
+                {
+                    "title": "Regenerating DAOs",
+                    "url": "doc/regenerating_daos.md"
                 }
             ]
 		}
