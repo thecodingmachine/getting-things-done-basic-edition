@@ -36,7 +36,7 @@ using PHP code. This code will typically go into your controller.
 ```php
 \Mouf::getDefaultWebLibraryManager()->addLibrary(
 	new WebLibrary(array("javascript/file1.js", "javascript/file2.js"),
-			array("css/style1.js", "css/style2.js"))	
+			array("css/style1.css", "css/style2.css"))	
 );
 ```
 
