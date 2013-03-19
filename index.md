@@ -25,16 +25,21 @@ Installing the full environment
 
 The first step is installing the environment.
 This can be done in 2 lines!
+Open a terminal, create a directory that will contain your project, move in this directory and then type:
 
 	# Let's download composer. If you don't have CURL installed
 	# see other Composer install techniques at http://getcomposer.org/download/ 
 	curl -s https://getcomposer.org/installer | php
+	# At this point, you should have a composer.phar file in your directory.
+	
 	# Let's download the whole project!
 	php composer.phar create-project -s dev mouf/getting-things-done-basic-edition
 	
-This will download and install the template project, along all the dependencies.
+This will download and install the template project, along all the dependencies. It can take up to 5 minutes for
+the complete download, so grab a cup of coffee, and come back when it is downloaded.
 
-Once the project has been downloaded, you need to install Mouf.
+Is it downloaded? Then you need to run the Mouf install process. As with most of the work in Mouf,
+this is web-based.
 Open your browser:
 	http://[your_domain]/[your_path]/vendor/mouf/mouf
 	

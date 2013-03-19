@@ -39,7 +39,8 @@
                     "title": "Regenerating DAOs",
                     "url": "doc/regenerating_daos.md"
                 }
-            ]
+            ],
+		"logo": "doc/icon.png"
 		}
     },
     "minimum-stability": "dev"
