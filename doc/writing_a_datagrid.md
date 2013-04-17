@@ -67,8 +67,8 @@ In this controller, we will add a field containing the Evolugrid, and the DaoFac
 <?php
 namespace Test\Controllers;
 
+use Test\Dao\DaoFactory;
 use Mouf\Html\Widgets\EvoluGrid\EvoluGrid;
-use Bilal\Dao\DaoFactory;
 use Mouf;
 use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\Html\Template\TemplateInterface;
@@ -123,7 +123,7 @@ class ClientsController extends Controller
 
 <h1>Clients list</h1>
 <?php
-$this->mealsGrid->toHtml();
+$this->clientsGrid->toHtml();
 ?>
 ```
 
@@ -131,5 +131,79 @@ Declaring controller and Evolugrid instances
 --------------------------------------------
 
 We will now declare the instances for our sample.
+If you are not confortable with creating instances in Mouf, you should read the [writing a controller tutorial](writing_a_controller.md).
 
+### The controller instance
+
+![Controller instance](images/evolugrid_clientscontroller.png)
+
+We drag'n'drop a new Evolugrid instance in our controller instance.
+
+### The evolugrid instance
+
+The evolugrid instance looks like this:
+
+![Evolugrid instance](images/evolugrid_instance.png)
+
+You can directly define the columns in the Evolugrid by drag'n'dropping "EvoluColumn" instances
+
+For each column, there is the "title" property that will be used in the table header, and the key, that references
+the JSON dataset.
+
+As you can see, we declare the Ajax URL that will be used to access the data, along with the maximum number of rows par page.
+
+Generating the JSON dataset
+---------------------------
+
+In the evolugrid instance, we referred to a "clients/data" URL, but we haven't created this URL yet.
+Let's add the method for this URL in the controller.
+
+```php
+	/**
+	 * Returns the data for clients
+	 *
+	 * @Get
+	 * @URL clients/data
+	 */
+	public function data($format = "json", $limit = null, $offset = null) {
+		$clientBeans = $this->daoFactory->getClientDao()->getClients($limit, $offset);
+	
+		// Let's go through the beans
+		foreach ($clientBeans as $clientBean) {
+			/* @var $clientBean ClientBean */
+			
+			// Let's generate a simple array representing one row
+			$row = array(
+				'id' =>	$clientBean->getId(),
+				'name' =>	$clientBean->getName(),
+				'first_name' =>	$clientBean->getFirstName(),
+				'email' =>	$clientBean->getEmail(),
+			);
+			
+			$this->clientsGrid->addRow($row);
+		}
+	
+		$this->clientsGrid->output($format);
+	}
+```
+
+As you may have noticed, we refer to the **ClientDao::getClients** method.
+This method does not exist yet, but if you are a TDBM wizard, this is actually a one line long method.
+
+```php
+class ClientDao extends ClientDaoBase
+{
+	/**
+	 * Returns a list of client beans.
+	 * 
+	 * @param int $limit
+	 * @param int $offset
+	 */
+	public function getClients($limit, $offset) {
+		// Let's call the protected method getClientListByFilter,
+		// passing in parameter the offset and limit.
+		return $this->getClientListByFilter(null, null, $offset, $limit);
+	}
+}
+```
 
