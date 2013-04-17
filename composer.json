@@ -16,8 +16,9 @@
         "mouf/mouf": "~2.0",
         "mouf/database.tdbm": "~3.0",
         "mouf/mvc.splash": "~4.0",
-        "mouf/html.template.bootstrap": "~2.1.1",
-        "mouf/mvc.bce": "~2.0"
+        "mouf/html.template.bootstrap": "~2.1",
+        "mouf/mvc.bce": "~2.0",
+        "mouf/html.widgets.evolugrid": "~2.0"
     },
     "autoload": {
         "psr-0": {
@@ -38,6 +39,11 @@
                 {
                     "title": "Regenerating DAOs",
                     "url": "doc/regenerating_daos.md"
+                }
+                ,
+                {
+                    "title": "Writing a datagrid",
+                    "url": "doc/writing_a_datagrid.md"
                 }
             ],
 		"logo": "doc/icon.png"
