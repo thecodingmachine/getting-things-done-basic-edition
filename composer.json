@@ -43,7 +43,17 @@
                 ,
                 {
                     "title": "Writing a datagrid",
-                    "url": "doc/writing_a_datagrid.md"
+                    "url": "doc/writing_a_datagrid.md",
+                    "children": [
+                        {
+		                    "title": "Customising columns",
+		                    "url": "doc/evolugrid_adding_special_columns.md"
+		                },
+		                {
+		                    "title": "Adding a search form",
+		                    "url": "doc/evolugrid_adding_search_form.md"
+		                }
+                    ]   
                 }
             ],
 		"logo": "doc/icon.png"

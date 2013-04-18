@@ -190,6 +190,7 @@ Let's add the method for this URL in the controller.
 As you may have noticed, we refer to the **ClientDao::getClients** method.
 This method does not exist yet, but if you are a TDBM wizard, this is actually a one line long method.
 
+###ClientDao.php
 ```php
 class ClientDao extends ClientDaoBase
 {
@@ -207,3 +208,27 @@ class ClientDao extends ClientDaoBase
 }
 ```
 
+
+
+Testing
+-------
+
+That's it! We should now be able to test our grid.
+
+<div class="alert">You might need to purge your cache (the red "Purge Cache" button in Mouf) in order to refresh the Splash URL's cache</div>
+
+Browse to http://localhost/[appname]/clients/list and you should see this:
+
+![Evolugrid screenshot](images/evolugrid_result.png)
+
+If you add more than 20 rows in your grid, you will see pagination that will appear automatically.
+
+Now, this is a fairly simple grid.
+You can read one of the following advanced tutorial to:
+
+- add hyperlinks or special design
+- add search forms
+
+
+
+ 
