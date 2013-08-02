@@ -116,7 +116,7 @@ That's it! We should now be able to test our filter system.
 
 <div class="alert">Since we modified an action signature in the controller, we need to purge your cache (the red "Purge Cache" button in Mouf) in order to refresh the Splash URL's cache</div>
 
-![Evolugrid filter form screenshot](evolugrid_filterform_result.png)
+![Evolugrid filter form screenshot](images/evolugrid_filterform_result.png)
 
 
 [You can refer to the complete evolugrid doc here](http://mouf-php.com/packages/mouf/html.widgets.evolugrid/doc/search_filters.md)
