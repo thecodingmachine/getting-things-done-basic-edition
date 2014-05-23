@@ -43,3 +43,20 @@ using PHP code. This code will typically go into your controller.
 This codes create a new *WebLibrary* and adds it to the *WebLibraryManager*.
 The *WebLibrary* takes an array of Javascript files as first argument, and an array
 of CSS files as second argument.
+
+Importing CSS / JS packages using Packagist
+-------------------------------------------
+
+A number of packages on Packagist directly support the WebLibraryManager.
+In addition, if you are looking for Javascript packages into Composer, you certainly found some packages that are
+respecting the "component" bundling format. [This is a format developped by Rob Loach](http://github.com/robloach/component-installer) and that
+enables packaging Javascript and CSS files in Packagist easily.
+
+For instance, have a look at the **component/jquery** package on Packagist.
+
+The **WebLibraryManager** has a built in support for these components. If you import one of those Composer packages
+in your project, the **WebLibraryManager** will detect these packages and will automatically create the **WebLibrary** instances
+matching those packages.
+
+Note: if you import these packages _before_ installing the WebLibraryManager, Mouf will detect the missing instances on the
+status page and will offer a button to create those missing instances automatically. 
