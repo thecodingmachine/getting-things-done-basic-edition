@@ -47,7 +47,17 @@ of CSS files as second argument.
 Importing CSS / JS packages using Packagist
 -------------------------------------------
 
-A number of packages on Packagist directly support the WebLibraryManager.
+###Using Bower
+
+Thanks to the marvelous [composer-asset-plugin libray](http://github.com/francoispluchino/composer-asset-plugin), we can now include **Bower** assets (so basically any modern Javascript library) directly into Composer dependencies.
+
+The **WebLibraryManager** has a built in support for these bower assets. When you insert new bower assets
+in your `composer.json` file, the WebLibraryManager will detect those packages and automatically create the 
+**WebLibrary** instances matching those packages.
+
+Note: the included JS and CSS files are based on the "main" attribute declared in the `bower.json` file of the package. 
+###Using components
+
 In addition, if you are looking for Javascript packages into Composer, you certainly found some packages that are
 respecting the "component" bundling format. [This is a format developped by Rob Loach](http://github.com/robloach/component-installer) and that
 enables packaging Javascript and CSS files in Packagist easily.
@@ -58,5 +68,4 @@ The **WebLibraryManager** has a built in support for these components. If you im
 in your project, the **WebLibraryManager** will detect these packages and will automatically create the **WebLibrary** instances
 matching those packages.
 
-Note: if you import these packages _before_ installing the WebLibraryManager, Mouf will detect the missing instances on the
-status page and will offer a button to create those missing instances automatically. 
+Note: if you import these packages _before_ installing the WebLibraryManager, Mouf will detect the missing instances on the status page and will offer a button to create those missing instances automatically. 
