@@ -107,12 +107,12 @@ class ClientsController extends Controller
 	 * Displays the list of all clients
 	 * 
 	 * @Get
-	 * @URL clients/list
+	 * @URL("clients/list")
 	 */
 	public function index() {
 		$this->template->setTitle("Clients list");
 		$this->content->addFile(__DIR__."/../../views/clients_list.php", $this);
-		$this->template->toHtml();
+		return new HtmlResponse($this->template);
 	}
 }
 ```

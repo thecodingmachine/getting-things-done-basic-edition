@@ -39,9 +39,10 @@ use Test\Dao\DaoFactory;
 use Mouf\Utils\Log\LogInterface;
 use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\Html\Template\TemplateInterface;
-use Mouf\Mvc\Splash\Controllers\Controller;
+use Mouf\Mvc\Splash\Annotations\URL;
+use Mouf\Mvc\Splash\HtmlResponse;
 
-class MyController extends Controller {
+class MyController {
 
     /**
      * The block receiving the content of the page.
@@ -77,7 +78,7 @@ class MyController extends Controller {
      * This method will be called when we access the /helloworld URL.*
      * It accepts an optional "echo" parameter.
      * 
-     * @URL /helloworld
+     * @URL("/helloworld")
      */
     public function helloworld($echo = '') {
     	// We store the $echo parameter in the controller.
@@ -91,17 +92,17 @@ class MyController extends Controller {
         $this->content->addFile(__DIR__."/../../views/helloworld.php", $this);
         
         // Finally, we draw the template.
-        $this->template->toHtml();
+        return new HtmlResponse($this->template);
     }
 
     /**
      * Just echoing some text will output the text directly.
      * This is useful for Ajax calls.
      * 
-     * @URL /helloworld_ajax
+     * @URL("/helloworld_ajax")
      */
     public function helloworld2() {
-        echo json_encode(array('hello'=>'world'));
+        return new JsonResponse(array('hello'=>'world'));
     }
 }
 ```

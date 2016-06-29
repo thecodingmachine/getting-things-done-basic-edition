@@ -11,12 +11,11 @@ The "basic edition" of "Getting things done" contains:
 
 - A MVC framework: [Splash MVC](http://mouf-php.com/packages/mouf/mvc.splash/)
 - A database ORM: [TDBM](http://mouf-php.com/packages/mouf/database.tdbm/)
-- A form generator: [BCE](http://mouf-php.com/packages/mouf/mvc.bce/)
 - A template based on Twitter Bootstrap: [BootstrapTemplate](http://mouf-php.com/packages/mouf/html.template.bootstrap/)
 - A menu system: [html.widgets.menu](http://mouf-php.com/packages/mouf/html.widgets.menu/)
 - A cache system: [CacheInterface](http://mouf-php.com/packages/mouf/utils.cache.cache-interface/), with [APC](http://mouf-php.com/packages/mouf/utils.cache.apc-cache/) and [filesystem](http://mouf-php.com/packages/mouf/utils.cache.file-cache/) implementations 
 - An internationalisation mechanism: [Fine](http://mouf-php.com/packages/mouf/utils.i18n.fine/)
-- A logger: [ErrorLogLogger](http://mouf-php.com/packages/mouf/utils.log.errorlog_logger/)
+- A logger: [ErrorLogLogger](http://mouf-php.com/packages/mouf/utils.log.psr.errorlog_logger/)
 
 You can of course add or remove packages as you wish, this is only a starting set.
 

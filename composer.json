@@ -14,15 +14,14 @@
     ],
     "require": {
         "mouf/mouf": "~2.0.0",
-        "mouf/database.tdbm": "~3.0",
-        "mouf/mvc.splash": "~5.0",
+        "mouf/database.tdbm": "~4.0",
+        "mouf/mvc.splash": "~8.0",
         "mouf/html.template.bootstrap": "~4.0",
-        "mouf/mvc.bce": "~4.0",
-        "mouf/html.widgets.evolugrid": "~4.0"
+        "mouf/html.widgets.evolugrid": "~5.1"
     },
     "autoload": {
-        "psr-0": {
-            "Test": "src/"
+        "psr-4": {
+            "Test\\": "src/Test"
         }
     },
     "extra": {
