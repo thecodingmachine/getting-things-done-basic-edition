@@ -19,9 +19,17 @@
         "mouf/html.template.bootstrap": "~4.0",
         "mouf/html.widgets.evolugrid": "~5.1"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0"
+    },
     "autoload": {
         "psr-4": {
-            "Test\\": "src/Test"
+            "Test\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+             "Test\\": "tests/"
         }
     },
     "extra": {

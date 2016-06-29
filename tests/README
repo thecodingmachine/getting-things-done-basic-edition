@@ -1,4 +1,4 @@
-The "Getting things done" package assumes you will put your classes in the "Test" vendor name (the vendor name is the top level namespace). All your classes should respect the PSR-0 convention. (https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md)
+The "Getting things done" package assumes you will put your PHPUnit test classes in the "Test" vendor name (the vendor name is the top level namespace). All your classes should respect the PSR-4 convention. (https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4.md)
 
 Of course, most of the time, you will not want to use the "Test" vendor name.
 To change the vendor name, simply create a new directory instead of the "Test" directory.
