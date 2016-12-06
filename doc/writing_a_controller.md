@@ -71,6 +71,20 @@ class MyController {
     private $twig;
 
     /**
+     * Controller's constructor.
+     * @param LoggerInterface $logger The logger
+     * @param TemplateInterface $template The template used by this controller
+     * @param HtmlBlock $content The main content block of the page
+     * @param Twig_Environment $twig The Twig environment (used to render Twig templates)
+     */
+    public function __construct(LoggerInterface $logger, TemplateInterface $template, HtmlBlock $content, Twig_Environment $twig) {
+        $this->logger = $logger;
+        $this->template = $template;
+        $this->content = $content;
+        $this->twig = $twig;
+    }
+    
+    /**
      * This method will be called when we access the /helloworld URL.*
      * It accepts an optional "echo" parameter.
      * 
