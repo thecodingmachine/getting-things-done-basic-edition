@@ -35,44 +35,40 @@ and at the [Composer autoload documentation](http://getcomposer.org/doc/04-schem
 <?php  
 namespace Test\Controllers;
 
-use Test\Dao\DaoFactory;
-use Mouf\Utils\Log\LogInterface;
-use Mouf\Html\HtmlElement\HtmlBlock;
-use Mouf\Html\Template\TemplateInterface;
 use Mouf\Mvc\Splash\Annotations\URL;
+use Mouf\Html\Template\TemplateInterface;
+use Mouf\Html\HtmlElement\HtmlBlock;
+use Psr\Log\LoggerInterface;
+use \Twig_Environment;
+use Mouf\Html\Renderer\Twig\TwigTemplate;
 use Mouf\Mvc\Splash\HtmlResponse;
+use Zend\Diactoros\Response\JsonResponse;
 
 class MyController {
 
     /**
-     * The block receiving the content of the page.
-     * 
-     * @var HtmlBlock
+     * The logger used by this controller.
+     * @var LoggerInterface
      */
-    public $content;
+    private $logger;
 
     /**
-     * The HTML template to use.
-     * 
+     * The template used by this controller.
      * @var TemplateInterface
      */
-    public $template;
-    
-    /**
-     * The logger
-     * 
-     * @var LogInterface
-     */
-    public $log;
-    
-    /**
-     * The utility class to access DAOs.
-     * 
-     * @var DaoFactory
-     */
-    public $daoFactory;
+    private $template;
 
-    protected $echo;
+    /**
+     * The main content block of the page.
+     * @var HtmlBlock
+     */
+    private $content;
+
+    /**
+     * The Twig environment (used to render Twig templates).
+     * @var Twig_Environment
+     */
+    private $twig;
 
     /**
      * This method will be called when we access the /helloworld URL.*
@@ -81,16 +77,13 @@ class MyController {
      * @URL("/helloworld")
      */
     public function helloworld($echo = '') {
-    	// We store the $echo parameter in the controller.
-    	// We will access it from the view
-        $this->echo = $echo;
-        
         // Typical code to access database goes here.
         
         // We declare the view, and bind it to the "content" block.
-        // The $this parameter means that in the view file, $this will refer to the controller.
-        $this->content->addFile(__DIR__."/../../views/helloworld.php", $this);
-        
+        // The view is declared in a Twig file.
+        // Let's add the twig file to the template.
+        $this->content->addHtmlElement(new TwigTemplate($this->twig, 'views/myview.twig', ["echo"=>$echo]));
+
         // Finally, we draw the template.
         return new HtmlResponse($this->template);
     }
@@ -117,17 +110,15 @@ namespace you want, as long as Composer is aware of the top level namespace (aka
 Create a view
 -------------
 
-In this sample, we are loading a view named "helloworld.php". Let's write this file:
+In this sample, we are loading a view named `myview.twig`. Let's write this file:
 
-```php
-<?php /* @var $this Test\Controllers\MyController */ ?>
+```twig
 <h1>Hello world!</h1>
-<p>echo: <?php echo $this->echo ?></p>
+<p>echo: {{ echo }}</p>
 ```
 
-As you can see, _$this_ in the view refers directly to the controller. We can access any members and any
-methods of the controller as long as they are *public* or *protected*. We cannot access *private* members
-from the view.
+This Twig file will be rendered in the view. If you are not used to Twig, you should check [Twig documentation](http://twig.sensiolabs.org/).
+Twig is a great templating engine for PHP. We recommend using it by default (you can of course use any templating engine you like).
 
 Purge code cache
 ----------------
